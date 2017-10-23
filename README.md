@@ -22,7 +22,7 @@ You were tasked to create a comparison tool for vehicles from this used car deal
   2. Show single car details
   3. Add/Edit car
   4. Show all locations
-  5. Show single location (shows location's inventory)
+  5. Show single location and their inventory
   6. Add/Edit location
   7. Vehicle Comparison Screen
 * The index page `'/'` should automatically redirect to `/cars`.

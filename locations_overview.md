@@ -1,14 +1,19 @@
 
-### Location Routes
-| Route Name     | Request Method | Example Request URL |  Route                   
-|----------------|----------------|---------------------|----------------------
-| location index     | `GET`          | `/location`            |  `/location`
-| location show page | `GET`          | `/location/1`          |  `/location/:location_id`
-| location edit      | `GET`          | `/location/1/edit`     |  `/location/:location_id/edit`
-| location update    | `POST`         | `/location/1/`         |  `/location/:location_id`
-| location new page  | `GET`          | `/location/new`        |  `/location/new`
-| location create    | `POST`         | `/location`            |  `/location`
-| location destroy   | `GET`          | `/location/1/destroy`  |  `/location/:location_id/destroy`
+### Client Location Routes
+| Route Name           | Request Method | Example Request URL    |  Route                   
+|----------------------|----------------|------------------------|----------------------
+| location index       | `GET`          | `/location`            |  `/location`
+| single location page | `GET`          | `/location/1`          |  `/location/:location_id`
+| location new page    | `GET`          | `/location/new`        |  `/location/new`
+| location edit        | `GET`          | `/location/1/edit`     |  `/location/:location_id/edit`
+
+### Server Location Routes
+| Route Name         | Request Method | Example Request URL |  Route                   
+|--------------------|----------------|---------------------|----------------------
+| all locations      | `GET`          | `/location`         |  `/location`
+| location update    | `PATCH`        | `/location/1/`      |  `/location/:location_id`
+| location create    | `POST`         | `/location`         |  `/location`
+| location destroy   | `DELETE`       | `/location/1`       |  `/location/:location_id`
 
 ### Locations Table
 | Column Name    | Data Type             

@@ -1,15 +1,20 @@
 ### Cars Routes
+| Route Name      | Request Method | Example Request URL |  Route                   
+|-----------------|----------------|---------------------|----------------------
+| cars index      | `GET`          | `/cars`             |  `/cars`
+| single car page | `GET`          | `/cars/1`           |  `/cars/:car_id`
+| cars edit       | `GET`          | `/cars/1/edit`      |  `/cars/:car_id/edit`
+| cars new page   | `GET`          | `/cars/new`         |  `/cars/new`
+
+#### Server Routes
 | Route Name     | Request Method | Example Request URL |  Route                   
 |----------------|----------------|---------------------|----------------------
-| cars index     | `GET`          | `/cars`            |  `/cars`
-| cars show page | `GET`          | `/cars/1`          |  `/cars/:car_id`
-| cars edit      | `GET`          | `/cars/1/edit`     |  `/cars/:car_id/edit`
-| cars update    | `POST`         | `/cars/1/`         |  `/cars/:car_id`
-| cars new page  | `GET`          | `/cars/new`        |  `/cars/new`
-| cars create    | `POST`         | `/cars`            |  `/cars`
-| cars destroy   | `GET`          | `/cars/1/destroy`  |  `/cars/:car_id/destroy`
+| all cars       | `GET`          | `/cars`             |  `/cars`
+| cars create    | `POST`         | `/cars`             |  `/cars`
+| cars update    | `PATCH`        | `/cars/1`           |  `/cars/:car_id`
+| cars destroy   | `DELETE`       | `/cars/1`           |  `/cars/:car_id`
 
-### Car Table
+### Cars Table
 | Column Name    | Data Type             
 |----------------|----------------
 | id            | SERIAL          
