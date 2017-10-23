@@ -1,4 +1,5 @@
 ### Cars Routes
+#### Client Routes
 | Route Name      | Request Method | Example Request URL |  Route                   
 |-----------------|----------------|---------------------|----------------------
 | cars index      | `GET`          | `/cars`             |  `/cars`
