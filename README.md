@@ -27,6 +27,5 @@ You were tasked to create a comparison tool for vehicles from this used car deal
   7. Vehicle Comparison Screen
 * The index page `'/'` should automatically redirect to `/cars`.
 * There can be a maximum of 3 cars in the comparison tool view at any given time.
-* Seed your database with the following JSON: [https://gist.github.com/johnazre/115199c10540824c3dd45a86cf634e38](https://gist.github.com/johnazre/115199c10540824c3dd45a86cf634e38)
 
 <a id="getting-started"></a>
