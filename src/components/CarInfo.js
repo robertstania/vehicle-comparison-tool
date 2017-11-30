@@ -1,26 +1,36 @@
 /*eslint-disable*/
 import React from 'react';
+import {connect} from 'react-redux';
 import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
 
-const CarInfo = ({car}) => {
-    console.log('carinfo:', car)
 
-  return (
-    <div>
-      <Card>
-        <CardBody>
-          <CardImg top width="100%" src={car.photo_url} alt="Card image cap" />
-          <CardSubtitle>Year: {car.year}</CardSubtitle>
-          <CardSubtitle>Make: {car.make}</CardSubtitle>
-          <CardSubtitle>Model: {car.model}</CardSubtitle>
-          <CardSubtitle>Price: {car.price}</CardSubtitle>
-          <CardSubtitle>Miles: {car.miles}</CardSubtitle>
-          <CardSubtitle>Location ID: {car.location_id}</CardSubtitle>
-        </CardBody>
-      </Card>
-    </div>
-  )
+class CarInfo extends React.Component {
+  render(){
+    console.log('car info:', this.props.car)
+    console.log('props', this.props)
+
+    return (
+      <div>
+        <Card>
+          <CardBody>
+            <CardImg top width="100%" src={this.props.car ? this.props.car.photo_url : ''} alt="Card image cap" />
+            <CardSubtitle>Year: {this.props.car ? this.props.car.year : ''}</CardSubtitle>
+            <CardSubtitle>Make: {this.props.car ? this.props.car.make : ''}</CardSubtitle>
+            <CardSubtitle>Model: {this.props.car ? this.props.car.model : ''}</CardSubtitle>
+            <CardSubtitle>Price: {this.props.car ? this.props.car.price : ''}</CardSubtitle>
+            <CardSubtitle>Miles: {this.props.car ? this.props.car.miles : ''}</CardSubtitle>
+            <CardSubtitle>Location ID: {this.props.car ? this.props.car.location_id : ''}</CardSubtitle>
+          </CardBody>
+        </Card>
+      </div>
+    )
+  }
 }
 
+function mapStateToProps(state, props) {
+  return {
+    car: state.cars.filter(car=> car.id == props.match.params.cars_id)[0]
+  }
+}
 
-export default (CarInfo)
+export default connect(mapStateToProps, null)(CarInfo)

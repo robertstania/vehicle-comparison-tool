@@ -5,6 +5,7 @@ import LocationInfo from './LocationInfo'
 
 class LocationList extends Component {
   render() {
+    console.log('location list:', this.props.locations)
     let containerMargin = { marginTop: '35px' }
     let listOfLocations = this.props.locations.map(location => {
       return (

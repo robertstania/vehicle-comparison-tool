@@ -16,13 +16,13 @@ Returns a method that contains a dispatch method that we need to dispatch:
 ---payload---which contains the data we want to manipulate
 */
 
-export const getCars = () => {
+export const getCar = () => {
   return async (dispatch) => {
     dispatch({ type: GET_CAR_PENDING })
-    let cars = await axios.get('http://localhost:8000/cars')
+    let car = await axios.get('http://localhost:8000/cars')
     dispatch({
       type: GET_CAR_SUCCESS,
-      payload: cars
+      payload: car
     })
   }
 }
@@ -30,10 +30,10 @@ export const getCars = () => {
 export const addCar = (newCar) => {
   return async (dispatch) => {
     dispatch({ type: ADD_CAR_PENDING })
-    let cars = await axios.post('http://localhost:8000/cars', addCar)
+    let car = await axios.post('http://localhost:8000/cars', addCar)
     dispatch({
       type: ADD_CAR_SUCCESS,
-      payload: cars
+      payload: car
     })
   }
 }
@@ -41,10 +41,10 @@ export const addCar = (newCar) => {
 export const removeCar = (id) => {
   return async (dispatch) => {
     dispatch({ type: REMOVE_CAR_PENDING })
-    let cars = await axios.delete(`http://localhost:8000/cars/${id}`)
+    let car = await axios.delete(`http://localhost:8000/cars/${id}`)
     dispatch({
       type: REMOVE_CAR_SUCCESS,
-      payload: cars
+      payload: car
     })
   }
 }

@@ -16,35 +16,35 @@ Returns a method that contains a dispatch method that we need to dispatch:
 ---payload---which contains the data we want to manipulate
 */
 
-export const getLocations = () => {
+export const getLocation = () => {
   return async (dispatch) => {
     dispatch({ type: GET_LOCATION_PENDING })
-    let locations = await axios.get('http://localhost:8000/locations')
+    let location = await axios.get('http://localhost:8000/locations')
     dispatch({
       type: GET_LOCATION_SUCCESS,
-      payload: locations
+      payload: location
     })
   }
 }
 
-export const addLocations = (newLocations) => {
+export const addLocation = (newLocation) => {
   return async (dispatch) => {
     dispatch({ type: ADD_LOCATION_PENDING })
-    let locations = await axios.post('http://localhost:8000/locations', addLocations)
+    let location = await axios.post('http://localhost:8000/locations', addLocation)
     dispatch({
       type: ADD_LOCATION_SUCCESS,
-      payload: locations
+      payload: location
     })
   }
 }
 
-export const removeLocations = (id) => {
+export const removeLocation = (id) => {
   return async (dispatch) => {
     dispatch({ type: REMOVE_LOCATION_PENDING })
-    let locations = await axios.delete(`http://localhost:8000/locations/${id}`)
+    let location = await axios.delete(`http://localhost:8000/locations/${id}`)
     dispatch({
       type: REMOVE_LOCATION_SUCCESS,
-      payload: locations
+      payload: location
     })
   }
 }
