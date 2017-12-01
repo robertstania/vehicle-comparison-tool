@@ -3,7 +3,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
 
-class CarInfo extends React.Component {
+class OneCar extends React.Component {
   render(){
     return (
       <div>
@@ -27,4 +27,4 @@ function mapStateToProps(state, props) {
     car: state.cars.filter(car => car.id == props.match.params.cars_id)[0]
   }
 }
-export default connect(mapStateToProps, null)(CarInfo);
+export default connect(mapStateToProps, null)(OneCar);

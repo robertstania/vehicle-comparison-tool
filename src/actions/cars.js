@@ -1,9 +1,12 @@
+/*eslint-disable*/
 import axios from 'axios';
 
 export const GET_CAR_PENDING = 'GET_CAR_PENDING';
 export const GET_CAR_SUCCESS = 'GET_CAR_SUCCESS';
 export const ADD_CAR_PENDING = 'ADD_CAR_PENDING';
 export const ADD_CAR_SUCCESS = 'ADD_CAR_SUCCESS';
+export const EDIT_CAR_PENDING = 'EDIT_CAR_PENDING';
+export const EDIT_CAR_SUCCESS = 'EDIT_CAR_SUCCESS';
 export const REMOVE_CAR_PENDING = 'REMOVE_CAR_PENDING';
 export const REMOVE_CAR_SUCCESS = 'REMOVE_CAR_SUCCESS';
 
@@ -27,10 +30,10 @@ export const getCar = () => {
   }
 }
 
-export const addCar = (newCar) => {
+export const addCar = (car) => {
   return async (dispatch) => {
     dispatch({ type: ADD_CAR_PENDING })
-    let car = await axios.post('http://localhost:8000/cars', addCar)
+    let car = await axios.post('http://localhost:8000/cars', car)
     dispatch({
       type: ADD_CAR_SUCCESS,
       payload: car
@@ -38,13 +41,13 @@ export const addCar = (newCar) => {
   }
 }
 
-export const removeCar = (id) => {
-  return async (dispatch) => {
-    dispatch({ type: REMOVE_CAR_PENDING })
-    let car = await axios.delete(`http://localhost:8000/cars/${id}`)
-    dispatch({
-      type: REMOVE_CAR_SUCCESS,
-      payload: car
-    })
-  }
-}
+// export const removeCar = (id) => {
+//   return async (dispatch) => {
+//     dispatch({ type: REMOVE_CAR_PENDING })
+//     let car = await axios.delete(`http://localhost:8000/cars/${id}`)
+//     dispatch({
+//       type: REMOVE_CAR_SUCCESS,
+//       payload: car
+//     })
+//   }
+// }

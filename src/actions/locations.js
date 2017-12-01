@@ -1,11 +1,14 @@
-import axios from 'axios'
+/*eslint-disable*/
+import axios from 'axios';
 
-export const GET_LOCATION_PENDING = 'GET_LOCATION_PENDING'
-export const GET_LOCATION_SUCCESS = 'GET_LOCATION_SUCCESS'
-export const ADD_LOCATION_PENDING = 'ADD_LOCATION_PENDING'
-export const ADD_LOCATION_SUCCESS = 'ADD_LOCATION_SUCCESS'
-export const REMOVE_LOCATION_PENDING = 'REMOVE_LOCATION_PENDING'
-export const REMOVE_LOCATION_SUCCESS = 'REMOVE_LOCATION_SUCCESS'
+export const GET_LOCATION_PENDING = 'GET_LOCATION_PENDING';
+export const GET_LOCATION_SUCCESS = 'GET_LOCATION_SUCCESS';
+export const ADD_LOCATION_PENDING = 'ADD_LOCATION_PENDING';
+export const ADD_LOCATION_SUCCESS = 'ADD_LOCATION_SUCCESS';
+export const EDIT_LOCATION_PENDING = 'EDIT_LOCATION_PENDING';
+export const EDIT_LOCATION_SUCCESS = 'EDIT_LOCATION_SUCCESS';
+export const REMOVE_LOCATION_PENDING = 'REMOVE_LOCATION_PENDING';
+export const REMOVE_LOCATION_SUCCESS = 'REMOVE_LOCATION_SUCCESS';
 
 /*
 A function returning a function
@@ -27,10 +30,10 @@ export const getLocation = () => {
   }
 }
 
-export const addLocation = (newLocation) => {
+export const addLocation = (location) => {
   return async (dispatch) => {
     dispatch({ type: ADD_LOCATION_PENDING })
-    let location = await axios.post('http://localhost:8000/locations', addLocation)
+    let location = await axios.post('http://localhost:8000/locations', location)
     dispatch({
       type: ADD_LOCATION_SUCCESS,
       payload: location
@@ -38,13 +41,13 @@ export const addLocation = (newLocation) => {
   }
 }
 
-export const removeLocation = (id) => {
-  return async (dispatch) => {
-    dispatch({ type: REMOVE_LOCATION_PENDING })
-    let location = await axios.delete(`http://localhost:8000/locations/${id}`)
-    dispatch({
-      type: REMOVE_LOCATION_SUCCESS,
-      payload: location
-    })
-  }
-}
+// export const removeLocation = (id) => {
+//   return async (dispatch) => {
+//     dispatch({ type: REMOVE_LOCATION_PENDING })
+//     let location = await axios.delete(`http://localhost:8000/locations/${id}`)
+//     dispatch({
+//       type: REMOVE_LOCATION_SUCCESS,
+//       payload: location
+//     })
+//   }
+// }

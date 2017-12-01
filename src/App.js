@@ -7,24 +7,24 @@ import { Container, Row, Col, Button } from 'reactstrap';
 
 import { getCar } from './actions/cars';
 import TopNav from './components/TopNav';
-import CarList from './components/CarList';
-import CarInfo from './components/CarInfo';
-import CarItem from './components/CarItem';
-import CarAddEdit from './components/CarAddEdit';
+import AllCars from './components/cars/AllCars';
+import OneCar from './components/cars/OneCar';
+import CarItem from './components/cars/CarItem';
+import AddEditCar from './components/cars/AddEditCar';
 
 import { getLocation } from './actions/locations';
-import LocationList from './components/LocationList';
-import LocationInfo from './components/LocationInfo';
-import LocationItem from './components/LocationItem';
-import LocationAddEdit from './components/LocationAddEdit';
+import AllLocations from './components/locations/AllLocations';
+import OneLocation from './components/locations/OneLocation';
+import LocationItem from './components/locations/LocationItem';
+import AddEditLocation from './components/locations/AddEditLocation';
 
-import VehicleComparisonScreen from './components/VehicleComparisonScreen';
+import CompareVehicles from './components/CompareVehicles';
 
 
 import {
   BrowserRouter as Router,
   Link
-} from 'react-router-dom'
+} from 'react-router-dom';
 
 class App extends React.Component {
   state = {
@@ -40,7 +40,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <TopNav />
-          <Container style={{marginTop: 25}}>
+          {/*<Container style={{marginTop: 25}}>
            <Button
              onClick={() => this.setState({
                showAddForm: !this.state.showAddForm
@@ -52,22 +52,22 @@ class App extends React.Component {
          {this.state.showAddForm && <Row>
            <Col>
            </Col>
-         </Row>}
+         </Row>} */}
           <Router>
             <Switch>
 
-              <Route exact path='/' component={CarList} />
-              <Route exact path='/cars' component={CarList} />
-              <Route exact path='/cars/new' component={CarAddEdit}/>
-              <Route exact path='/cars/:cars_id' component={CarInfo}/>
-              <Route exact path='/cars/:cars_id/edit' component={CarAddEdit}/>
+              <Route exact path='/' component={AllCars} />
+              <Route exact path='/cars' component={AllCars} />
+              <Route exact path='/cars/new' component={AddEditCar}/>
+              <Route exact path='/cars/:cars_id' component={OneCar}/>
+              <Route exact path='/cars/:cars_id/edit' component={AddEditCar}/>
 
-              <Route exact path='/locations' component={LocationList}/>
-              <Route exact path='/locations/new' component={LocationAddEdit}/>
-              <Route exact path='/locations/:locations_id' component={LocationInfo}/>
-              <Route exact path='/locations/:locations_id/edit' component={LocationAddEdit}/>
+              <Route exact path='/locations' component={AllLocations}/>
+              <Route exact path='/locations/new' component={AddEditLocation}/>
+              <Route exact path='/locations/:locations_id' component={OneLocation}/>
+              <Route exact path='/locations/:locations_id/edit' component={AddEditLocation}/>
 
-              <Route exact path='/compare' component={VehicleComparisonScreen}/>
+              <Route exact path='/compare' component={CompareVehicles}/>
 
             </Switch>
           </Router>

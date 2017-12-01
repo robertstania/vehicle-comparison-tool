@@ -1,7 +1,7 @@
 import React from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 
-export default class TopNav extends React.Component {
+export default class Example extends React.Component {
   constructor(props) {
     super(props);
 
@@ -18,8 +18,8 @@ export default class TopNav extends React.Component {
   render() {
     return (
       <div>
-        <Navbar color="danger" light expand="md">
-          <NavbarBrand href="/">Vehicle Comparison Tool</NavbarBrand>
+        <Navbar color="primary" dark expand="md">
+          <NavbarBrand href="/">VCT</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
