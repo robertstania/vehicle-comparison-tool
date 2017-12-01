@@ -3,17 +3,22 @@ import React from 'react'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Switch, Route } from 'react-router';
+import { Container, Row, Col, Button } from 'reactstrap';
+
 import { getCar } from './actions/cars';
-import { getLocation } from './actions/locations';
 import TopNav from './components/TopNav';
 import CarList from './components/CarList';
 import CarInfo from './components/CarInfo';
+import CarItem from './components/CarItem';
 import CarAddEdit from './components/CarAddEdit';
+
+import { getLocation } from './actions/locations';
 import LocationList from './components/LocationList';
 import LocationInfo from './components/LocationInfo';
+import LocationItem from './components/LocationItem';
 import LocationAddEdit from './components/LocationAddEdit';
+
 import VehicleComparisonScreen from './components/VehicleComparisonScreen';
-import { Container, Row, Col, Button } from 'reactstrap';
 
 
 import {
@@ -46,40 +51,24 @@ class App extends React.Component {
          </Container>
          {this.state.showAddForm && <Row>
            <Col>
-             <CarInfo/>
            </Col>
          </Row>}
           <Router>
             <Switch>
 
-              <Route exact path='/'
-                component={CarList}/>
-              <Route exact path='/cars'
-                component={CarList}/>
-              <Route exact path='/cars/new'
-                component={CarAddEdit}/>
-
+              <Route exact path='/' component={CarList} />
+              <Route exact path='/cars' component={CarList} />
+              <Route exact path='/cars/new' component={CarAddEdit}/>
               <Route exact path='/cars/:cars_id' component={CarInfo}/>
+              <Route exact path='/cars/:cars_id/edit' component={CarAddEdit}/>
 
-              <Route exact path='/cars/:cars_id/edit'
-                component={CarAddEdit}/>
+              <Route exact path='/locations' component={LocationList}/>
+              <Route exact path='/locations/new' component={LocationAddEdit}/>
+              <Route exact path='/locations/:locations_id' component={LocationInfo}/>
+              <Route exact path='/locations/:locations_id/edit' component={LocationAddEdit}/>
 
+              <Route exact path='/compare' component={VehicleComparisonScreen}/>
 
-              <Route exact path='/locations'
-                component={LocationList}/>
-              <Route exact path='/locations/new'
-                component={LocationAddEdit}/>
-              <Route exact path='locations/:locations_id'
-                exact render={({match}) => (
-                  <LocationInfo location={locations.find(location =>
-                      location.id == match.params.locations_id
-                  )}/>
-                )}/>
-              <Route exact path='/locations/:locations_id/edit'
-                component={LocationAddEdit}/>
-
-              <Route exact path='/compare'
-                component={VehicleComparisonScreen}/>
             </Switch>
           </Router>
       </div>

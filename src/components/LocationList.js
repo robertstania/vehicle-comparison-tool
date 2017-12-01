@@ -1,16 +1,15 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
-import LocationInfo from './LocationInfo'
+import LocationItem from './LocationItem';
 
 class LocationList extends Component {
   render() {
-    console.log('location list:', this.props.locations)
     let containerMargin = { marginTop: '35px' }
     let listOfLocations = this.props.locations.map(location => {
       return (
         <Col key={location.id} md={4}>
-          <LocationInfo location={location} />
+          <LocationItem location={location} />
         </Col>
       )
     })
@@ -23,11 +22,9 @@ class LocationList extends Component {
     )
   }
 }
-
 function mapStateToProps(state, props) {
   return {
     locations: state.locations
   }
 }
-
-export default connect(mapStateToProps, null)(LocationList)
+export default connect(mapStateToProps, null)(LocationList);

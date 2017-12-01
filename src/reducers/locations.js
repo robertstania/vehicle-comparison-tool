@@ -17,11 +17,11 @@ export default(state = [], action) => {
     case ADD_LOCATION_PENDING:
       return state;
     case ADD_LOCATION_SUCCESS:
-      return [...state, action.payload.data];
+      return [...action.payload.data];
     case REMOVE_LOCATION_PENDING:
       return state;
     case REMOVE_LOCATION_SUCCESS:
-      return [...state, action.payload.data];
+      return [...action.payload.data];
     default:
       return state;
   }

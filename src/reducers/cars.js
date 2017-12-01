@@ -17,11 +17,11 @@ export default(state = [], action) => {
     case ADD_CAR_PENDING:
       return state;
     case ADD_CAR_SUCCESS:
-      return [...state, action.payload.data];
+      return [...action.payload.data];
     case REMOVE_CAR_PENDING:
       return state;
     case REMOVE_CAR_SUCCESS:
-      return [...state, action.payload.data]
+      return [...action.payload.data]
     default:
       return state;
   }

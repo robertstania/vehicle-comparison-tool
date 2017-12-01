@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
-import CarInfo from './CarInfo'
+import CarItem from './CarItem';
 
 class CarList extends Component {
   render() {
@@ -9,7 +9,7 @@ class CarList extends Component {
     let listOfCars = this.props.cars.map(car => {
       return (
         <Col key={car.id} md={4}>
-          <CarInfo car={car} />
+          <CarItem car={car} />
         </Col>
       )
     })
@@ -22,11 +22,9 @@ class CarList extends Component {
     )
   }
 }
-
 function mapStateToProps(state, props) {
   return {
     cars: state.cars
   }
 }
-
-export default connect(mapStateToProps, null)(CarList)
+export default connect(mapStateToProps, null)(CarList);
